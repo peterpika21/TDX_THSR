@@ -4,7 +4,7 @@ module.exports = {
   mode: 'spa',
   // head 配置
   head: {
-    titleTemplate: '自我練習',
+    titleTemplate: 'Taiwan Travel',
     meta: [
       {
         charset: 'utf-8'
@@ -16,7 +16,7 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: '自我練習'
+        content: '台灣旅遊查詢'
       }
     ],
     link: [
@@ -47,7 +47,7 @@ module.exports = {
   // 客製化配置 nuxt 應用路由
   router: {
     // 配合 github deploy 用 /nuxt/ 記得改成專案資料夾名稱才能 deploy
-    base: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/nuxt/' : '',
+    base: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/TDX_travel_tw/' : '',
 
     mode: 'history',
     routes: [
