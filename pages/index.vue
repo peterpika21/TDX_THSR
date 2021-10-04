@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div v-for="item in listData" :key="item.ID">
+      <img :src="item.Picture.PictureUrl1" :alt="item.Picture.PictureDescription1" />
+    </div>
     <fa :icon="['fas', 'file-image']" />
   </div>
 </template>
@@ -9,19 +12,24 @@ import jsSHA from 'jssha'
 
 export default {
   data() {
-    return {}
+    return {
+      listData: []
+    }
   },
   created() {
     this.api()
   },
   methods: {
     api() {
+      const vm = this
+
       this.$axios
         .get('/v2/Tourism/ScenicSpot?$top=30&$format=JSON', {
           headers: this.getAuthorizationHeader()
         })
         .then(function(res) {
-          console.log(res.data)
+          vm.listData = JSON.parse(JSON.stringify(res.data))
+          console.log(vm.listData)
         })
     },
     getAuthorizationHeader() {
