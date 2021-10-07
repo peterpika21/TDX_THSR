@@ -1,35 +1,42 @@
 <template>
   <div>
-    <div v-for="item in listData" :key="item.ID">
-      <img :src="item.Picture.PictureUrl1" :alt="item.Picture.PictureDescription1" />
-    </div>
-    <fa :icon="['fas', 'file-image']" />
+    <!-- 看板 -->
+    <banner></banner>
+
+    <section>
+      <!-- <fa :icon="['fas', 'file-image']" /> -->
+    </section>
   </div>
 </template>
 
 <script>
 import jsSHA from 'jssha'
+import banner from '~/components/banner.vue'
 
 export default {
+  components: { banner },
   data() {
     return {
-      listData: []
+      northData: [],
+      southData: []
     }
   },
-  created() {
-    this.api()
-  },
+  created() {},
   methods: {
-    api() {
+    getBannerData() {
       const vm = this
 
       this.$axios
-        .get('/v2/Tourism/ScenicSpot?$top=30&$format=JSON', {
+        .get(``, {
           headers: this.getAuthorizationHeader()
         })
         .then(function(res) {
-          vm.listData = JSON.parse(JSON.stringify(res.data))
-          console.log(vm.listData)
+          let str = JSON.parse(JSON.stringify(res.data.AvailableSeats))
+
+          vm.southData = str.filter(e => e.Direction === 0)
+          vm.northData = str.filter(e => e.Direction === 1)
+          console.log(vm.southData)
+          console.log(vm.northData)
         })
     },
     getAuthorizationHeader() {
