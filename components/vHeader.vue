@@ -34,6 +34,9 @@ export default {
 
 <style lang="scss" scoped>
 .header {
+  background: #fff;
+  box-shadow: 0 0 3px #000;
+
   &__logo {
     margin: 0;
     width: 210px;

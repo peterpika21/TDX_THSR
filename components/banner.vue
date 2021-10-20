@@ -1,100 +1,98 @@
 <template>
-  <div>
-    <!-- 看板 -->
-    <section>
-      <div class="banner">
-        <!-- 南下 -->
-        <div class="banner__north">
-          <p class="p-2 font-l weight-l align-center bg-gray-200">
-            南下車次
-          </p>
-          <table class="width-20">
-            <thead class="tx-white">
-              <th class="font-xl">
-                車次
-              </th>
-              <th class="font-l">
-                起程站
-              </th>
-              <th class="font-l">
-                到達站
-              </th>
-              <th width="210px" class="font-l">
-                發車時間
-              </th>
-              <th width="80px" class="font-l">
-                狀況
-              </th>
-            </thead>
-            <tbody>
-              <tr v-for="(item, index) in southData" :key="`sourth${index}`">
-                <td class="font-l align-center tx-primary weight-l">
-                  {{ item.TrainNo }}
-                </td>
-                <td class="font-l align-center tx-info weight-l">
-                  {{ item.StationName.Zh_tw }}
-                </td>
-                <td class="font-l align-center tx-danger weight-l">
-                  {{ item.EndingStationName.Zh_tw }}
-                </td>
-                <td>
-                  <electronicClock :time="item.DepartureTime"></electronicClock>
-                </td>
-                <td class="font-l align-center tx-success weight-l">
-                  準點
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- 北上 -->
-        <div class="banner__north">
-          <p class="p-2 font-l weight-l align-center bg-gray-200">
-            北上車次
-          </p>
-          <table class="width-20">
-            <thead class="tx-white">
-              <th class="font-xl">
-                車次
-              </th>
-              <th class="font-l">
-                起程站
-              </th>
-              <th class="font-l">
-                到達站
-              </th>
-              <th width="210px" class="font-l">
-                發車時間
-              </th>
-              <th width="80px" class="font-l">
-                狀況
-              </th>
-            </thead>
-            <tbody>
-              <tr v-for="(item, index) in northData" :key="`north${index}`">
-                <td class="font-l align-center tx-primary weight-l">
-                  {{ item.TrainNo }}
-                </td>
-                <td class="font-l align-center tx-info weight-l">
-                  {{ item.StationName.Zh_tw }}
-                </td>
-                <td class="font-l align-center tx-danger weight-l">
-                  {{ item.EndingStationName.Zh_tw }}
-                </td>
-                <td>
-                  <electronicClock :time="item.DepartureTime"></electronicClock>
-                </td>
-                <td class="font-l align-center tx-success weight-l">
-                  準點
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+  <!-- 看板 -->
+  <section>
+    <div class="banner">
+      <!-- 南下 -->
+      <div class="banner__north">
+        <p class="p-2 font-l weight-l align-center bg-gray-100">
+          南下車次
+        </p>
+        <table class="width-20">
+          <thead class="tx-white">
+            <th class="font-l">
+              車次
+            </th>
+            <th class="font-l">
+              起程站
+            </th>
+            <th class="font-l">
+              到達站
+            </th>
+            <th width="210px" class="font-l">
+              發車時間
+            </th>
+            <th width="80px" class="font-l">
+              狀況
+            </th>
+          </thead>
+          <tbody>
+            <tr v-for="(item, index) in southData" :key="`sourth${index}`">
+              <td class="font-l align-center tx-primary weight-l">
+                {{ item.TrainNo }}
+              </td>
+              <td class="font-l align-center tx-info weight-l">
+                {{ item.StationName.Zh_tw }}
+              </td>
+              <td class="font-l align-center tx-danger weight-l">
+                {{ item.EndingStationName.Zh_tw }}
+              </td>
+              <td>
+                <electronicClock :time="item.DepartureTime"></electronicClock>
+              </td>
+              <td class="font-l align-center tx-success weight-l">
+                準點
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </section>
-  </div>
+
+      <!-- 北上 -->
+      <div class="banner__north">
+        <p class="p-2 font-l weight-l align-center bg-gray-100">
+          北上車次
+        </p>
+        <table class="width-20">
+          <thead class="tx-white">
+            <th class="font-l">
+              車次
+            </th>
+            <th class="font-l">
+              起程站
+            </th>
+            <th class="font-l">
+              到達站
+            </th>
+            <th width="210px" class="font-l">
+              發車時間
+            </th>
+            <th width="80px" class="font-l">
+              狀況
+            </th>
+          </thead>
+          <tbody>
+            <tr v-for="(item, index) in northData" :key="`north${index}`">
+              <td class="font-l align-center tx-primary weight-l">
+                {{ item.TrainNo }}
+              </td>
+              <td class="font-l align-center tx-info weight-l">
+                {{ item.StationName.Zh_tw }}
+              </td>
+              <td class="font-l align-center tx-danger weight-l">
+                {{ item.EndingStationName.Zh_tw }}
+              </td>
+              <td>
+                <electronicClock :time="item.DepartureTime"></electronicClock>
+              </td>
+              <td class="font-l align-center tx-success weight-l">
+                準點
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -130,8 +128,6 @@ export default {
 
           vm.southData = str.filter(e => e.Direction === 0).filter((e, i) => i < 7)
           vm.northData = str.filter(e => e.Direction === 1).filter((e, i) => i < 7)
-          console.log(vm.southData)
-          console.log(vm.northData)
         })
     },
     getAuthorizationHeader() {
