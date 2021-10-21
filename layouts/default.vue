@@ -1,29 +1,32 @@
 <template>
   <div id="app">
     <vHeader></vHeader>
-    <nuxt />
-
-    <!-- <footer>
-      <div class="mx-auto my-0 h-container">
-        footer
-      </div>
-    </footer> -->
+    <nuxt class="container" />
+    <vFooter></vFooter>
   </div>
 </template>
 
 <script>
 import vHeader from '~/components/vHeader.vue'
+import vFooter from '~/components/vFooter.vue'
 
 export default {
   components: {
-    vHeader
+    vHeader,
+    vFooter
   }
 }
 </script>
 
 <style lang="scss" scoped>
+@import '~assets/css/helpers/_variables.scss';
+
 #app {
   height: 100%;
   overflow-x: hidden;
+}
+
+.container {
+  min-height: $container-height;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <section class="mx-auto my-0 h-container">
+  <section class="mx-auto mb-12 h-container">
     <div class="title">
       <div class="title__line"></div>
       <h2 class="title__tx">

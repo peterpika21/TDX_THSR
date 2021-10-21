@@ -56,11 +56,9 @@ export default {
   },
   created() {
     this.getStationData()
-    this.getTicket()
   },
   methods: {
     search() {
-      console.log(this)
       this.$router.push({
         path: '/search',
         query: {
@@ -69,18 +67,6 @@ export default {
           goDate: this.goDate
         }
       })
-    },
-    getTicket() {
-      const vm = this
-
-      this.$axios
-        .get(`/v2/Rail/THSR/ODFare/${vm.startStation}/to/${vm.endStation}`, {
-          headers: this.getAuthorizationHeader()
-        })
-        .then(function(res) {
-          let str = JSON.parse(JSON.stringify(res.data))
-          console.log(str)
-        })
     },
     getStationData() {
       const vm = this

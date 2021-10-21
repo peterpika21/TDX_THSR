@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <div class="mx-auto my-0 h-container d-flex justify-content-between">
+    <div class="mx-auto my-0 h-container d-flex justify-content-between" style="height: 100%">
       <h1 class="header__logo">
         <a href="/">
           <img src="https://www.thsrc.com.tw/Event/Logo.svg" alt="台灣高鐵" />
@@ -33,7 +33,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~assets/css/helpers/_variables.scss';
+
 .header {
+  height: $header-hight;
   background: #fff;
   box-shadow: 0 0 3px #000;
 
