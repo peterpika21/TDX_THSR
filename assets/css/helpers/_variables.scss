@@ -1,8 +1,5 @@
 // layout
 $container-width: 1200px;
-$header-hight: 96px;
-$footer-hight: 200px;
-$container-height: calc(100vh - #{$header-hight + $footer-hight});
 
 // RWD 斷點
 $RWD: (

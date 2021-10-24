@@ -85,11 +85,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~assets/css/helpers/_variables.scss';
 @import '~assets/css/helpers/_mixin.scss';
 
 .header {
-  height: $header-hight;
   background: #fff;
   box-shadow: 0 0 3px #000;
 

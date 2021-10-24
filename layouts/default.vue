@@ -19,14 +19,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~assets/css/helpers/_variables.scss';
-
 #app {
   height: 100%;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
-  min-height: $container-height;
+  flex-grow: 1;
 }
 </style>

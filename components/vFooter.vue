@@ -34,7 +34,6 @@ export default {
 @import '~assets/css/helpers/_variables.scss';
 
 .footer {
-  height: $footer-hight;
   background: #6b6a6f;
 
   &__list {
