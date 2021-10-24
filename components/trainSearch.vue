@@ -99,6 +99,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~assets/css/helpers/_mixin.scss';
+
 .title {
   margin: 60px 0 12px 0;
   display: flex;
@@ -163,6 +165,17 @@ export default {
     &:hover {
       color: #333;
       background: lighten($color: #ca4f0f, $amount: 10%);
+    }
+  }
+}
+
+@include breakpoint('md') {
+  .wrap {
+    display: block;
+
+    &__col {
+      width: 100%;
+      margin-bottom: 12px;
     }
   }
 }

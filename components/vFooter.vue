@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <div class="mx-auto my-0 p-3 h-container">
+    <div class="mx-auto my-0 px-3 pt-3 h-container">
       <h2 class="tx-white">
         相關版權與聲明
       </h2>

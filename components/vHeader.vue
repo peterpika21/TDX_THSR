@@ -20,7 +20,7 @@
       </ul>
 
       <div class="header__icon">
-        <input id="nav-toggle" type="checkbox" />
+        <input id="nav-toggle" v-model="isToggleNav" type="checkbox" />
         <label for="nav-toggle" class="ham">
           <div class="ham__origin">
             <div class="ham__bar ham__bar--top"></div>
@@ -39,6 +39,9 @@
           <li>
             <a href="javascript:void(0)" class="header__link--md" @click="goAnchor('footer')">相關說明</a>
           </li>
+          <li>
+            <a href="javascript:void(0)" class="header__link--md" @click="isToggleNav = false">關閉</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -47,6 +50,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      isToggleNav: false
+    }
+  },
   methods: {
     goAnchor(selector) {
       this.$router.push({ path: '/', query: { anchor: selector } })

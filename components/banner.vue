@@ -148,6 +148,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~assets/css/helpers/_mixin.scss';
+
 .banner {
   background: #202124;
   display: flex;
@@ -159,6 +161,12 @@ export default {
 
   &__sourth {
     flex: 1;
+  }
+}
+
+@include breakpoint('xs') {
+  .banner {
+    display: none;
   }
 }
 </style>

@@ -10,9 +10,13 @@
 
     <table class="table">
       <thead>
-        <th>類別</th>
+        <th width="85px">
+          類別
+        </th>
         <th>標題</th>
-        <th>日期</th>
+        <th width="95px">
+          日期
+        </th>
       </thead>
       <tbody>
         <tr v-for="item in msgData" :key="item.NewsID">
