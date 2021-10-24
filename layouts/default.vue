@@ -2,7 +2,7 @@
   <div id="app">
     <vHeader></vHeader>
     <nuxt class="container" />
-    <vFooter></vFooter>
+    <vFooter id="footer"></vFooter>
   </div>
 </template>
 

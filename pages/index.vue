@@ -4,14 +4,10 @@
     <banner></banner>
 
     <!-- 時刻表 -->
-    <trainSearch></trainSearch>
+    <trainSearch id="trainSearch"></trainSearch>
 
     <!-- 最新消息 -->
-    <newMessage></newMessage>
-
-    <section>
-      <!-- <fa :icon="['fas', 'file-image']" /> -->
-    </section>
+    <newMessage id="newMessage"></newMessage>
   </div>
 </template>
 
