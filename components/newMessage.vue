@@ -24,7 +24,7 @@
             {{ item.NewsCategory }}
           </td>
           <td>
-            <a href="#" class="table__link">{{ item.Title }}</a>
+            <a href="javascript:void(0)" class="table__link" @click="route(item)">{{ item.Title }}</a>
           </td>
           <td class="align-center">
             {{ item.StartTime }}
@@ -38,6 +38,7 @@
 <script>
 import dayjs from 'dayjs'
 import jsSHA from 'jssha'
+import { Base64 } from 'js-base64'
 
 export default {
   data() {
@@ -63,6 +64,9 @@ export default {
           })
           vm.msgData = str
         })
+    },
+    route(item) {
+      this.$router.push({ path: 'message', query: { data: Base64.encode(JSON.stringify(item)) } })
     },
     getAuthorizationHeader() {
       let AppID = '4a642955ffbe4621967b643c51372922'

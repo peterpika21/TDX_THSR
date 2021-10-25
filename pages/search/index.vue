@@ -245,6 +245,7 @@ export default {
 @include breakpoint('xs') {
   .info {
     display: block;
+    margin-left: 18px;
   }
 
   .fares {
