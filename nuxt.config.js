@@ -67,6 +67,10 @@ module.exports = {
     {
       src: '~/plugins/font-awesome.js',
       ssr: false
+    },
+    {
+      src: '~/plugins/filter.js',
+      ssr: false
     }
   ],
   fontawesome: {

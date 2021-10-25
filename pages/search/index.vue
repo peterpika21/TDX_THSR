@@ -1,18 +1,31 @@
 <template>
   <section class="mx-auto my-0 h-container">
-    <div class="my-3 d-flex align-items-center">
-      <span class="mr-3 font-xl weight-l">
-        {{ startName }}
-      </span>
-      <span class="goto">
-        去程
-      </span>
-      <span class="ml-6 font-xl weight-l">
-        {{ endName }}
-      </span>
-      <span class="ml-12 font-l">
-        {{ goDate }}
-      </span>
+    <div class="info">
+      <div class="d-flex align-items-center">
+        <span class="mr-3 font-xl weight-l">
+          {{ startName }}
+        </span>
+        <span class="goto">
+          去程
+        </span>
+        <span class="ml-6 font-xl weight-l">
+          {{ endName }}
+        </span>
+        <span class="ml-12 font-l">
+          {{ goDate }}
+        </span>
+      </div>
+
+      <ul class="fares">
+        <li v-for="(item, index) in fares" :key="index" class="fares__item">
+          <div class="fares__type" :class="typeColor(index)">
+            {{ item.TicketType }}
+          </div>
+          <div class="fares__price">
+            {{ item.Price | currency }}
+          </div>
+        </li>
+      </ul>
     </div>
 
     <table class="table">
@@ -37,19 +50,10 @@
         </tr>
       </tbody>
     </table>
-
-    <div class="title">
-      <div class="title__line"></div>
-      <h2 class="title__tx">
-        車廂票價參考
-      </h2>
-      <div class="title__line"></div>
-    </div>
   </section>
 </template>
 
 <script>
-// import dayjs from 'dayjs'
 import jsSHA from 'jssha'
 
 export default {
@@ -81,7 +85,6 @@ export default {
           vm.startName = str.OriginStationName.Zh_tw
           vm.endName = str.DestinationStationName.Zh_tw
           vm.fares = [...str.Fares]
-          console.log(vm.fares)
         })
     },
     getTimetable() {
@@ -103,6 +106,19 @@ export default {
           }))
         })
     },
+    typeColor(i) {
+      if (i === 0) {
+        return 'bg-primary'
+      }
+
+      if (i === 1) {
+        return 'bg-info'
+      }
+
+      if (i === 2) {
+        return 'bg-success'
+      }
+    },
     getAuthorizationHeader() {
       let AppID = '4a642955ffbe4621967b643c51372922'
       let AppKey = 'f_cWs8Qm3fXmoY5H8jrA4aWbcog'
@@ -121,6 +137,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~assets/css/helpers/_mixin.scss';
+
 .title {
   margin: 60px 0 12px 0;
   display: flex;
@@ -144,6 +162,13 @@ export default {
   }
 }
 
+.info {
+  margin: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .goto {
   display: inline-block;
   padding: 4px 8px;
@@ -162,6 +187,28 @@ export default {
     border-bottom: 30px solid #ca4f0f;
     right: -16px;
     bottom: 0;
+  }
+}
+
+.fares {
+  display: flex;
+  width: 200px;
+
+  &__item {
+    flex: 1;
+  }
+
+  &__type {
+    padding: 4px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &__price {
+    padding: 4px;
+    background: #fff;
+    text-align: center;
   }
 }
 
@@ -192,6 +239,16 @@ export default {
   th:last-child,
   td:last-child {
     border-right: none;
+  }
+}
+
+@include breakpoint('xs') {
+  .info {
+    display: block;
+  }
+
+  .fares {
+    margin: 12px 0;
   }
 }
 </style>
