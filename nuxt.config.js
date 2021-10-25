@@ -4,7 +4,7 @@ module.exports = {
   mode: 'spa',
   // head 配置
   head: {
-    titleTemplate: 'Taiwan Travel',
+    titleTemplate: '高鐵時刻表',
     meta: [
       {
         charset: 'utf-8'
@@ -16,7 +16,7 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: '台灣旅遊查詢'
+        content: '簡易台灣高鐵時刻表查詢'
       }
     ],
     link: [
