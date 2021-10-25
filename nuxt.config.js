@@ -47,7 +47,7 @@ module.exports = {
   // 客製化配置 nuxt 應用路由
   router: {
     // 配合 github deploy 用 /nuxt/ 記得改成專案資料夾名稱才能 deploy
-    base: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/TDX_travel_tw/' : '',
+    base: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/TDX_THSR/' : '',
 
     mode: 'history',
     routes: [
