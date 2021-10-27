@@ -192,7 +192,7 @@ export default {
 
 .fares {
   display: flex;
-  width: 200px;
+  width: 300px;
 
   &__item {
     flex: 1;
