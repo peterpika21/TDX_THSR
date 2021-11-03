@@ -84,7 +84,7 @@ export default {
           let str = JSON.parse(JSON.stringify(res.data[0]))
           vm.startName = str.OriginStationName.Zh_tw
           vm.endName = str.DestinationStationName.Zh_tw
-          vm.fares = [...str.Fares]
+          vm.fares = [...str.Fares].splice(0, 3)
         })
     },
     getTimetable() {
@@ -192,6 +192,7 @@ export default {
 
 .fares {
   display: flex;
+  flex-wrap: wrap;
   width: 300px;
 
   &__item {
